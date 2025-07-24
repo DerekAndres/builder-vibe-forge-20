@@ -20,5 +20,11 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Car API routes
+  app.get("/api/cars", getCars);
+  app.post("/api/cars", createCar);
+  app.get("/api/cars/:id", getCar);
+  app.delete("/api/cars/:id", deleteCar);
+
   return app;
 }
