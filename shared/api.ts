@@ -22,9 +22,9 @@ export interface Car {
   year: number;
   price: number;
   mileage: number;
-  fuelType: 'Gasoline' | 'Diesel' | 'Electric' | 'Hybrid';
-  transmission: 'Manual' | 'Automatic';
-  bodyType: 'Sedan' | 'SUV' | 'Hatchback' | 'Coupe' | 'Truck' | 'Convertible';
+  fuelType: "Gasoline" | "Diesel" | "Electric" | "Hybrid";
+  transmission: "Manual" | "Automatic";
+  bodyType: "Sedan" | "SUV" | "Hatchback" | "Coupe" | "Truck" | "Convertible";
   color: string;
   description: string;
   imageUrl: string;
@@ -42,9 +42,9 @@ export interface CreateCarRequest {
   year: number;
   price: number;
   mileage: number;
-  fuelType: Car['fuelType'];
-  transmission: Car['transmission'];
-  bodyType: Car['bodyType'];
+  fuelType: Car["fuelType"];
+  transmission: Car["transmission"];
+  bodyType: Car["bodyType"];
   color: string;
   description: string;
   imageUrl: string;

@@ -2,7 +2,13 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { getCars, createCar, deleteCar, getCar, toggleCarVisibility } from "./routes/cars";
+import {
+  getCars,
+  createCar,
+  deleteCar,
+  getCar,
+  toggleCarVisibility,
+} from "./routes/cars";
 
 export function createServer() {
   const app = express();

@@ -132,7 +132,10 @@ export default function Blog() {
     <div className="min-h-screen bg-white">
       <Navbar />
       {/* Header */}
-      <header className="bg-[#050B20] text-white relative z-50" style={{ display: 'none' }}>
+      <header
+        className="bg-[#050B20] text-white relative z-50"
+        style={{ display: "none" }}
+      >
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[60px]">
           <div className="flex items-center justify-between h-[104px]">
             {/* Logo */}

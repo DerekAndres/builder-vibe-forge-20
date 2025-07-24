@@ -1,88 +1,125 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, Car as CarIcon, Save } from "lucide-react";
 import { CreateCarRequest, CreateCarResponse, Car } from "@shared/api";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 
-const fuelTypes: Car['fuelType'][] = ['Gasoline', 'Diesel', 'Electric', 'Hybrid'];
-const transmissionTypes: Car['transmission'][] = ['Manual', 'Automatic'];
-const bodyTypes: Car['bodyType'][] = ['Sedan', 'SUV', 'Hatchback', 'Coupe', 'Truck', 'Convertible'];
+const fuelTypes: Car["fuelType"][] = [
+  "Gasoline",
+  "Diesel",
+  "Electric",
+  "Hybrid",
+];
+const transmissionTypes: Car["transmission"][] = ["Manual", "Automatic"];
+const bodyTypes: Car["bodyType"][] = [
+  "Sedan",
+  "SUV",
+  "Hatchback",
+  "Coupe",
+  "Truck",
+  "Convertible",
+];
 
 const currentYear = new Date().getFullYear();
-const years = Array.from({ length: currentYear - 1970 + 2 }, (_, i) => currentYear + 1 - i);
+const years = Array.from(
+  { length: currentYear - 1970 + 2 },
+  (_, i) => currentYear + 1 - i,
+);
 
 export default function AddCar() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<CreateCarRequest>({
-    title: '',
-    brand: '',
-    model: '',
+    title: "",
+    brand: "",
+    model: "",
     year: currentYear,
     price: 0,
     mileage: 0,
-    fuelType: 'Gasoline',
-    transmission: 'Automatic',
-    bodyType: 'Sedan',
-    color: '',
-    description: '',
-    imageUrl: '',
-    showInCatalog: true
+    fuelType: "Gasoline",
+    transmission: "Automatic",
+    bodyType: "Sedan",
+    color: "",
+    description: "",
+    imageUrl: "",
+    showInCatalog: true,
   });
 
-  const handleInputChange = (field: keyof CreateCarRequest, value: string | number | boolean) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleInputChange = (
+    field: keyof CreateCarRequest,
+    value: string | number | boolean,
+  ) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
-    if (!formData.title || !formData.brand || !formData.model || !formData.color || !formData.description || !formData.imageUrl) {
-      toast.error('Please fill in all required fields');
+    if (
+      !formData.title ||
+      !formData.brand ||
+      !formData.model ||
+      !formData.color ||
+      !formData.description ||
+      !formData.imageUrl
+    ) {
+      toast.error("Please fill in all required fields");
       return;
     }
 
     if (formData.price <= 0) {
-      toast.error('Price must be greater than 0');
+      toast.error("Price must be greater than 0");
       return;
     }
 
     if (formData.mileage < 0) {
-      toast.error('Mileage cannot be negative');
+      toast.error("Mileage cannot be negative");
       return;
     }
 
     setLoading(true);
-    
+
     try {
-      const response = await fetch('/api/cars', {
-        method: 'POST',
+      const response = await fetch("/api/cars", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to add car');
+        throw new Error(errorData.error || "Failed to add car");
       }
 
       const data: CreateCarResponse = await response.json();
       toast.success(data.message);
-      
+
       // Redirect to cars page
-      window.location.href = '/cars';
+      window.location.href = "/cars";
     } catch (error) {
-      console.error('Error adding car:', error);
-      toast.error(error instanceof Error ? error.message : 'Failed to add car');
+      console.error("Error adding car:", error);
+      toast.error(error instanceof Error ? error.message : "Failed to add car");
     } finally {
       setLoading(false);
     }
@@ -98,7 +135,7 @@ export default function AddCar() {
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
-                onClick={() => window.location.href = '/cars'}
+                onClick={() => (window.location.href = "/cars")}
                 className="flex items-center gap-2"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -136,18 +173,22 @@ export default function AddCar() {
                       id="title"
                       placeholder="e.g., 2024 BMW X5 M50i Sport"
                       value={formData.title}
-                      onChange={(e) => handleInputChange('title', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("title", e.target.value)
+                      }
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="brand">Brand *</Label>
                     <Input
                       id="brand"
                       placeholder="e.g., BMW"
                       value={formData.brand}
-                      onChange={(e) => handleInputChange('brand', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("brand", e.target.value)
+                      }
                       required
                     />
                   </div>
@@ -158,14 +199,21 @@ export default function AddCar() {
                       id="model"
                       placeholder="e.g., X5"
                       value={formData.model}
-                      onChange={(e) => handleInputChange('model', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("model", e.target.value)
+                      }
                       required
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="year">Year *</Label>
-                    <Select value={formData.year.toString()} onValueChange={(value) => handleInputChange('year', parseInt(value))}>
+                    <Select
+                      value={formData.year.toString()}
+                      onValueChange={(value) =>
+                        handleInputChange("year", parseInt(value))
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -186,8 +234,13 @@ export default function AddCar() {
                       type="number"
                       min="1"
                       placeholder="e.g., 45000"
-                      value={formData.price || ''}
-                      onChange={(e) => handleInputChange('price', parseInt(e.target.value) || 0)}
+                      value={formData.price || ""}
+                      onChange={(e) =>
+                        handleInputChange(
+                          "price",
+                          parseInt(e.target.value) || 0,
+                        )
+                      }
                       required
                     />
                   </div>
@@ -199,15 +252,25 @@ export default function AddCar() {
                       type="number"
                       min="0"
                       placeholder="e.g., 15000"
-                      value={formData.mileage || ''}
-                      onChange={(e) => handleInputChange('mileage', parseInt(e.target.value) || 0)}
+                      value={formData.mileage || ""}
+                      onChange={(e) =>
+                        handleInputChange(
+                          "mileage",
+                          parseInt(e.target.value) || 0,
+                        )
+                      }
                       required
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="fuelType">Fuel Type *</Label>
-                    <Select value={formData.fuelType} onValueChange={(value: Car['fuelType']) => handleInputChange('fuelType', value)}>
+                    <Select
+                      value={formData.fuelType}
+                      onValueChange={(value: Car["fuelType"]) =>
+                        handleInputChange("fuelType", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -223,7 +286,12 @@ export default function AddCar() {
 
                   <div className="space-y-2">
                     <Label htmlFor="transmission">Transmission *</Label>
-                    <Select value={formData.transmission} onValueChange={(value: Car['transmission']) => handleInputChange('transmission', value)}>
+                    <Select
+                      value={formData.transmission}
+                      onValueChange={(value: Car["transmission"]) =>
+                        handleInputChange("transmission", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -239,7 +307,12 @@ export default function AddCar() {
 
                   <div className="space-y-2">
                     <Label htmlFor="bodyType">Body Type *</Label>
-                    <Select value={formData.bodyType} onValueChange={(value: Car['bodyType']) => handleInputChange('bodyType', value)}>
+                    <Select
+                      value={formData.bodyType}
+                      onValueChange={(value: Car["bodyType"]) =>
+                        handleInputChange("bodyType", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -259,7 +332,9 @@ export default function AddCar() {
                       id="color"
                       placeholder="e.g., Black"
                       value={formData.color}
-                      onChange={(e) => handleInputChange('color', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("color", e.target.value)
+                      }
                       required
                     />
                   </div>
@@ -273,7 +348,9 @@ export default function AddCar() {
                     type="url"
                     placeholder="e.g., https://example.com/car-image.jpg"
                     value={formData.imageUrl}
-                    onChange={(e) => handleInputChange('imageUrl', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("imageUrl", e.target.value)
+                    }
                     required
                   />
                   {formData.imageUrl && (
@@ -283,7 +360,7 @@ export default function AddCar() {
                         alt="Car preview"
                         className="w-32 h-20 object-cover rounded border"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
+                          (e.target as HTMLImageElement).style.display = "none";
                         }}
                       />
                     </div>
@@ -297,7 +374,9 @@ export default function AddCar() {
                     id="description"
                     placeholder="Describe the car's features, condition, and any other relevant details..."
                     value={formData.description}
-                    onChange={(e) => handleInputChange('description', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("description", e.target.value)
+                    }
                     rows={4}
                     required
                   />
@@ -308,9 +387,14 @@ export default function AddCar() {
                   <Checkbox
                     id="showInCatalog"
                     checked={formData.showInCatalog}
-                    onCheckedChange={(checked) => handleInputChange('showInCatalog', checked)}
+                    onCheckedChange={(checked) =>
+                      handleInputChange("showInCatalog", checked)
+                    }
                   />
-                  <Label htmlFor="showInCatalog" className="text-sm font-medium">
+                  <Label
+                    htmlFor="showInCatalog"
+                    className="text-sm font-medium"
+                  >
                     Show this car in the public catalog
                   </Label>
                   <p className="text-xs text-gray-600 ml-2">
@@ -323,7 +407,7 @@ export default function AddCar() {
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => window.location.href = '/cars'}
+                    onClick={() => (window.location.href = "/cars")}
                   >
                     Cancel
                   </Button>
@@ -337,7 +421,7 @@ export default function AddCar() {
                     ) : (
                       <Save className="w-4 h-4" />
                     )}
-                    {loading ? 'Adding...' : 'Add Car'}
+                    {loading ? "Adding..." : "Add Car"}
                   </Button>
                 </div>
               </form>

@@ -1,11 +1,33 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plus, Trash2, Car as CarIcon, Calendar, Gauge, Fuel, Settings, Palette, Eye, EyeOff } from "lucide-react";
-import { Car, GetCarsResponse, DeleteCarResponse, ToggleCarVisibilityResponse } from "@shared/api";
+import {
+  Plus,
+  Trash2,
+  Car as CarIcon,
+  Calendar,
+  Gauge,
+  Fuel,
+  Settings,
+  Palette,
+  Eye,
+  EyeOff,
+} from "lucide-react";
+import {
+  Car,
+  GetCarsResponse,
+  DeleteCarResponse,
+  ToggleCarVisibilityResponse,
+} from "@shared/api";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 
@@ -52,7 +74,7 @@ export default function Cars() {
       const data: DeleteCarResponse = await response.json();
 
       // Remove car from local state
-      setCars(prevCars => prevCars.filter(car => car.id !== carId));
+      setCars((prevCars) => prevCars.filter((car) => car.id !== carId));
       toast.success(data.message);
     } catch (error) {
       console.error("Error deleting car:", error);
@@ -63,7 +85,10 @@ export default function Cars() {
   };
 
   // Toggle car visibility in catalog
-  const toggleCarVisibility = async (carId: string, currentVisibility: boolean) => {
+  const toggleCarVisibility = async (
+    carId: string,
+    currentVisibility: boolean,
+  ) => {
     setToggling(carId);
     try {
       const response = await fetch(`/api/cars/${carId}/visibility`, {
@@ -81,12 +106,12 @@ export default function Cars() {
       const data: ToggleCarVisibilityResponse = await response.json();
 
       // Update car in local state
-      setCars(prevCars =>
-        prevCars.map(car =>
+      setCars((prevCars) =>
+        prevCars.map((car) =>
           car.id === carId
             ? { ...car, showInCatalog: !currentVisibility }
-            : car
-        )
+            : car,
+        ),
       );
       toast.success(data.message);
     } catch (error) {
@@ -99,9 +124,9 @@ export default function Cars() {
 
   // Format price
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(price);
@@ -109,15 +134,15 @@ export default function Cars() {
 
   // Format mileage
   const formatMileage = (mileage: number) => {
-    return new Intl.NumberFormat('en-US').format(mileage) + ' miles';
+    return new Intl.NumberFormat("en-US").format(mileage) + " miles";
   };
 
   useEffect(() => {
     fetchCars();
   }, []);
 
-  const visibleCars = cars.filter(car => car.showInCatalog);
-  const hiddenCars = cars.filter(car => !car.showInCatalog);
+  const visibleCars = cars.filter((car) => car.showInCatalog);
+  const hiddenCars = cars.filter((car) => !car.showInCatalog);
 
   if (loading) {
     return (
@@ -133,7 +158,10 @@ export default function Cars() {
     );
   }
 
-  const renderCarGrid = (carList: Car[], showVisibilityToggle: boolean = false) => {
+  const renderCarGrid = (
+    carList: Car[],
+    showVisibilityToggle: boolean = false,
+  ) => {
     if (carList.length === 0) {
       return (
         <div className="text-center py-12">
@@ -144,13 +172,12 @@ export default function Cars() {
           <p className="mt-1 text-sm text-gray-500">
             {showVisibilityToggle
               ? "All cars are currently visible in the catalog."
-              : "Get started by adding a new car to your catalog."
-            }
+              : "Get started by adding a new car to your catalog."}
           </p>
           {!showVisibilityToggle && (
             <div className="mt-6">
               <Button
-                onClick={() => window.location.href = '/cars/add'}
+                onClick={() => (window.location.href = "/cars/add")}
                 className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
               >
                 <Plus className="w-4 h-4" />
@@ -165,7 +192,10 @@ export default function Cars() {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {carList.map((car) => (
-          <Card key={car.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+          <Card
+            key={car.id}
+            className="overflow-hidden hover:shadow-lg transition-shadow"
+          >
             {/* Car Image */}
             <div className="relative h-48 overflow-hidden">
               <img
@@ -178,7 +208,9 @@ export default function Cars() {
                   <Button
                     variant="secondary"
                     size="sm"
-                    onClick={() => toggleCarVisibility(car.id, car.showInCatalog)}
+                    onClick={() =>
+                      toggleCarVisibility(car.id, car.showInCatalog)
+                    }
                     disabled={toggling === car.id}
                     className="h-8 w-8 p-0 bg-white/90 hover:bg-white"
                   >
@@ -206,13 +238,18 @@ export default function Cars() {
                 </Button>
               </div>
               <div className="absolute top-3 left-3 flex gap-2">
-                <Badge variant="secondary" className="bg-white/90 text-gray-900">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/90 text-gray-900"
+                >
                   {car.bodyType}
                 </Badge>
                 {showVisibilityToggle && (
                   <Badge
                     variant={car.showInCatalog ? "default" : "secondary"}
-                    className={car.showInCatalog ? "bg-green-600" : "bg-gray-500"}
+                    className={
+                      car.showInCatalog ? "bg-green-600" : "bg-gray-500"
+                    }
                   >
                     {car.showInCatalog ? "Visible" : "Hidden"}
                   </Badge>
@@ -259,12 +296,18 @@ export default function Cars() {
               {showVisibilityToggle && (
                 <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div className="flex items-center gap-2">
-                    {car.showInCatalog ? <Eye className="w-4 h-4 text-green-600" /> : <EyeOff className="w-4 h-4 text-gray-500" />}
+                    {car.showInCatalog ? (
+                      <Eye className="w-4 h-4 text-green-600" />
+                    ) : (
+                      <EyeOff className="w-4 h-4 text-gray-500" />
+                    )}
                     <span className="text-sm font-medium">Show in catalog</span>
                   </div>
                   <Switch
                     checked={car.showInCatalog}
-                    onCheckedChange={() => toggleCarVisibility(car.id, car.showInCatalog)}
+                    onCheckedChange={() =>
+                      toggleCarVisibility(car.id, car.showInCatalog)
+                    }
                     disabled={toggling === car.id}
                   />
                 </div>
@@ -305,7 +348,7 @@ export default function Cars() {
               </div>
               <div className="mt-4 sm:mt-0">
                 <Button
-                  onClick={() => window.location.href = '/cars/add'}
+                  onClick={() => (window.location.href = "/cars/add")}
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
                 >
                   <Plus className="w-4 h-4" />
@@ -318,7 +361,11 @@ export default function Cars() {
 
         {/* Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="catalog" className="flex items-center gap-2">
                 <Eye className="w-4 h-4" />
@@ -333,7 +380,8 @@ export default function Cars() {
             <TabsContent value="catalog" className="mt-6">
               <div className="mb-4">
                 <p className="text-sm text-gray-600">
-                  These are the cars currently visible to the public in your catalog.
+                  These are the cars currently visible to the public in your
+                  catalog.
                 </p>
               </div>
               {renderCarGrid(visibleCars)}
@@ -342,7 +390,8 @@ export default function Cars() {
             <TabsContent value="manage" className="mt-6">
               <div className="mb-4">
                 <p className="text-sm text-gray-600">
-                  Manage all your cars. Use the toggle switches to control which cars appear in the public catalog.
+                  Manage all your cars. Use the toggle switches to control which
+                  cars appear in the public catalog.
                 </p>
               </div>
               {renderCarGrid(cars, true)}

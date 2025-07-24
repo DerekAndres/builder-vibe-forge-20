@@ -18,9 +18,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div 
-            className="flex items-center cursor-pointer" 
-            onClick={() => navigate('/')}
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={() => navigate("/")}
           >
             <Car className="w-8 h-8 text-blue-600 mr-2" />
             <span className="text-xl font-bold text-gray-900">BoxCars</span>
@@ -29,23 +29,23 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
               className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                isActive('/') 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                isActive("/")
+                  ? "bg-blue-100 text-blue-700"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
               }`}
             >
               <Home className="w-4 h-4" />
               Home
             </button>
-            
+
             <button
-              onClick={() => navigate('/cars')}
+              onClick={() => navigate("/cars")}
               className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                isActive('/cars') || isActive('/cars/add') 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                isActive("/cars") || isActive("/cars/add")
+                  ? "bg-blue-100 text-blue-700"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
               }`}
             >
               <Car className="w-4 h-4" />
@@ -53,11 +53,11 @@ export default function Navbar() {
             </button>
 
             <button
-              onClick={() => navigate('/blog')}
+              onClick={() => navigate("/blog")}
               className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                isActive('/blog') 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                isActive("/blog")
+                  ? "bg-blue-100 text-blue-700"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
               }`}
             >
               <span>Blog</span>
@@ -86,28 +86,28 @@ export default function Navbar() {
             <div className="space-y-2">
               <button
                 onClick={() => {
-                  navigate('/');
+                  navigate("/");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center gap-2 w-full px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive('/') 
-                    ? 'bg-blue-100 text-blue-700' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  isActive("/")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 }`}
               >
                 <Home className="w-4 h-4" />
                 Home
               </button>
-              
+
               <button
                 onClick={() => {
-                  navigate('/cars');
+                  navigate("/cars");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center gap-2 w-full px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive('/cars') || isActive('/cars/add') 
-                    ? 'bg-blue-100 text-blue-700' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  isActive("/cars") || isActive("/cars/add")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 }`}
               >
                 <Car className="w-4 h-4" />
@@ -116,13 +116,13 @@ export default function Navbar() {
 
               <button
                 onClick={() => {
-                  navigate('/blog');
+                  navigate("/blog");
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center gap-2 w-full px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive('/blog') 
-                    ? 'bg-blue-100 text-blue-700' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  isActive("/blog")
+                    ? "bg-blue-100 text-blue-700"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 }`}
               >
                 Blog
