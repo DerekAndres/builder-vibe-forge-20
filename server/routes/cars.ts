@@ -150,13 +150,13 @@ export const deleteCar: RequestHandler = (req, res) => {
 export const getCar: RequestHandler = (req, res) => {
   try {
     const { id } = req.params;
-    
+
     if (!id) {
       return res.status(400).json({ error: 'Car ID is required' });
     }
 
     const car = cars.find(car => car.id === id);
-    
+
     if (!car) {
       return res.status(404).json({ error: 'Car not found' });
     }
@@ -164,6 +164,37 @@ export const getCar: RequestHandler = (req, res) => {
     res.json({ car });
   } catch (error) {
     console.error('Error getting car:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+// Toggle car visibility in catalog
+export const toggleCarVisibility: RequestHandler = (req, res) => {
+  try {
+    const { id } = req.params;
+    const { showInCatalog }: ToggleCarVisibilityRequest = req.body;
+
+    if (!id) {
+      return res.status(400).json({ error: 'Car ID is required' });
+    }
+
+    const carIndex = cars.findIndex(car => car.id === id);
+
+    if (carIndex === -1) {
+      return res.status(404).json({ error: 'Car not found' });
+    }
+
+    // Update the car's visibility
+    cars[carIndex].showInCatalog = showInCatalog;
+
+    const response: ToggleCarVisibilityResponse = {
+      car: cars[carIndex],
+      message: `Car visibility updated: ${showInCatalog ? 'shown' : 'hidden'} in catalog`
+    };
+
+    res.json(response);
+  } catch (error) {
+    console.error('Error toggling car visibility:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
