@@ -95,6 +95,7 @@ const vehicleTypes = [
 
 export default function Blog() {
   const [email, setEmail] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -103,49 +104,96 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-[#050B20] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-26 py-7">
+      <header className="bg-[#050B20] text-white relative z-50">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[60px]">
+          <div className="flex items-center justify-between h-[104px]">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <div className="text-white font-bold text-xl">BOXCARS</div>
+              <div className="text-white font-bold text-xl tracking-wide">BOXCARS</div>
             </div>
 
-            {/* Navigation */}
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+            {/* Navigation - Desktop */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
                 Home
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
                 Listings
               </a>
-              <a href="#" className="text-white hover:text-blue-400 underline">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium underline decoration-white">
                 Blog
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
                 Pages
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
                 About
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
                 Contact
               </a>
             </nav>
 
-            {/* Right side buttons */}
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
+            {/* Right side buttons - Desktop */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">
                 <User className="w-4 h-4" />
-                <span className="text-sm">Sign in</span>
+                <span className="text-[15px] font-medium">Sign in</span>
               </div>
-              <Button 
-                className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6"
+              <Button
+                className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6 py-3 text-[15px] font-medium border border-white"
               >
                 Submit Listing
               </Button>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-white p-2"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+            </div>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden absolute top-full left-0 w-full bg-[#050B20] border-t border-white/10">
+              <nav className="px-4 py-6 space-y-4">
+                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                  Home
+                </a>
+                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                  Listings
+                </a>
+                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium underline">
+                  Blog
+                </a>
+                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                  Pages
+                </a>
+                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                  About
+                </a>
+                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                  Contact
+                </a>
+                <div className="pt-4 border-t border-white/10">
+                  <div className="flex items-center space-x-2 mb-4 cursor-pointer hover:text-blue-400 transition-colors">
+                    <User className="w-4 h-4" />
+                    <span className="text-[15px] font-medium">Sign in</span>
+                  </div>
+                  <Button
+                    className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6 py-3 text-[15px] font-medium w-full"
+                  >
+                    Submit Listing
+                  </Button>
+                </div>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
