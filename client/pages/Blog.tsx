@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, User, ArrowUp } from "lucide-react";
+import { ChevronRight, User, ArrowUp, Menu } from "lucide-react";
 
 const blogPosts = [
   {
