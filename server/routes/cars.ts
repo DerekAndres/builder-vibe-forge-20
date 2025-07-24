@@ -18,6 +18,7 @@ let cars: Car[] = [
     color: "Black",
     description: "Luxury SUV with premium features and excellent performance. Nearly new with low mileage.",
     imageUrl: "https://api.builder.io/api/v1/image/assets/TEMP/ff3c36f1e4fca013aac04b6841d202fab91887ee?width=832",
+    showInCatalog: true,
     createdAt: new Date().toISOString()
   },
   {
@@ -34,6 +35,7 @@ let cars: Car[] = [
     color: "White",
     description: "High-performance electric sedan with ludicrous acceleration and cutting-edge technology.",
     imageUrl: "https://api.builder.io/api/v1/image/assets/TEMP/7462c356e06661303f37b09c47b028feeb90c788?width=832",
+    showInCatalog: true,
     createdAt: new Date().toISOString()
   },
   {
@@ -50,6 +52,7 @@ let cars: Car[] = [
     color: "Silver",
     description: "Fuel-efficient hybrid sedan with premium interior and advanced safety features.",
     imageUrl: "https://api.builder.io/api/v1/image/assets/TEMP/cea6385d5c3bf4163ea4c731f7da90e046f53a39?width=832",
+    showInCatalog: false,
     createdAt: new Date().toISOString()
   }
 ];
