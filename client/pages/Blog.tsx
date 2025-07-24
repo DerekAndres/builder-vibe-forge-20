@@ -198,17 +198,17 @@ export default function Blog() {
       </header>
 
       {/* Breadcrumb and Title Section */}
-      <section className="bg-white rounded-t-[80px] relative -mt-4 pt-11 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white rounded-t-[80px] relative pt-[45px] pb-[7px]">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px]">
           {/* Breadcrumb */}
-          <nav className="flex items-center space-x-2 text-sm mb-6">
-            <a href="#" className="text-blue-600 hover:underline">Home</a>
-            <span className="text-gray-600">/</span>
-            <span className="text-gray-900">Blog</span>
+          <nav className="flex items-center space-x-1 text-[15px] mb-[35px]">
+            <a href="#" className="text-[#405FF2] hover:underline font-normal">Home</a>
+            <span className="text-[#050B20] px-1">/</span>
+            <span className="text-[#050B20] font-normal">Blog</span>
           </nav>
 
           {/* Page Title */}
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Blog</h1>
+          <h1 className="text-[40px] font-bold text-[#050B20] leading-[48px] capitalize">Blog</h1>
         </div>
       </section>
 
