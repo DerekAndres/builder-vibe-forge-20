@@ -5,9 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, Car as CarIcon, Save } from "lucide-react";
 import { CreateCarRequest, CreateCarResponse, Car } from "@shared/api";
 import { toast } from "sonner";
+import Navbar from "@/components/Navbar";
 
 const fuelTypes: Car['fuelType'][] = ['Gasoline', 'Diesel', 'Electric', 'Hybrid'];
 const transmissionTypes: Car['transmission'][] = ['Manual', 'Automatic'];
