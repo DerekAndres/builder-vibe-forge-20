@@ -1,0 +1,392 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, User, ArrowUp } from "lucide-react";
+
+const blogPosts = [
+  {
+    id: 1,
+    title: "2024 BMW ALPINA XB7 with exclusive details, extraordinary",
+    category: "Sound",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/908264b92e4a0a521f03b702d54f60077bd17f15?width=832"
+  },
+  {
+    id: 2,
+    title: "BMW X6 M50i is designed to exceed your sportiest.",
+    category: "Accessories",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/7462c356e06661303f37b09c47b028feeb90c788?width=832"
+  },
+  {
+    id: 3,
+    title: "BMW X5 Gold 2024 Sport Review: Light on Sport",
+    category: "Exterior",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/ff3c36f1e4fca013aac04b6841d202fab91887ee?width=832"
+  },
+  {
+    id: 4,
+    title: "2024 Kia Sorento Hybrid Review: Big Vehicle With Small-Vehicle",
+    category: "Body Kit",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/52e6b0494b45c4c41e35f5342e3a7b2ef1005394?width=832"
+  },
+  {
+    id: 5,
+    title: "2024 Audi Hybrid gives up nothing with its optimized",
+    category: "Fuel Systems",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/cea6385d5c3bf4163ea4c731f7da90e046f53a39?width=832"
+  },
+  {
+    id: 6,
+    title: "2024 BMW X3 M Sport Seats – available as a standalone option",
+    category: "Exterior",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/075653d4dd6beda316af6bdb46ec1a6328fe49ee?width=832"
+  },
+  {
+    id: 7,
+    title: "2023 Carnival Standard blind-spot & forward collision avoidance",
+    category: "Body Kit",
+    author: "admin",
+    date: "November 22, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/12887ded18ff4fadae4d52613df15cdf5165a8b6?width=832"
+  },
+  {
+    id: 8,
+    title: "Golf vs Polo: A Comparison of Two Volkswagen Classics",
+    category: "Sound",
+    author: "admin",
+    date: "September 19, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/60d0aa08dcff9179bb61b7b887d860b574c2b4f7?width=832"
+  },
+  {
+    id: 9,
+    title: "Battle of the SUVs – Kia Sportage vs Hyundai Tucson",
+    category: "Oil & Filters",
+    author: "admin",
+    date: "September 19, 2023",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/177c614420acb691ded6c6893cc12ffe3e852a16?width=832"
+  }
+];
+
+const companyLinks = [
+  "About Us", "Blog", "Services", "FAQs", "Terms", "Contact Us"
+];
+
+const quickLinks = [
+  "Get in Touch", "Help center", "Live chat", "How it works"
+];
+
+const brands = [
+  "Toyota", "Porsche", "Audi", "BMW", "Ford", "Nissan", "Peugeot", "Volkswagen"
+];
+
+const vehicleTypes = [
+  "Sedan", "Hatchback", "SUV", "Hybrid", "Electric", "Coupe", "Truck", "Convertible"
+];
+
+export default function Blog() {
+  const [email, setEmail] = useState("");
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-[#050B20] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-26 py-7">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <div className="text-white font-bold text-xl">BOXCARS</div>
+            </div>
+
+            {/* Navigation */}
+            <nav className="hidden md:flex space-x-8">
+              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                Home
+              </a>
+              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                Listings
+              </a>
+              <a href="#" className="text-white hover:text-blue-400 underline">
+                Blog
+              </a>
+              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                Pages
+              </a>
+              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                About
+              </a>
+              <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                Contact
+              </a>
+            </nav>
+
+            {/* Right side buttons */}
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <User className="w-4 h-4" />
+                <span className="text-sm">Sign in</span>
+              </div>
+              <Button 
+                className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6"
+              >
+                Submit Listing
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Breadcrumb and Title Section */}
+      <section className="bg-white rounded-t-[80px] relative -mt-4 pt-11 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav className="flex items-center space-x-2 text-sm mb-6">
+            <a href="#" className="text-blue-600 hover:underline">Home</a>
+            <span className="text-gray-600">/</span>
+            <span className="text-gray-900">Blog</span>
+          </nav>
+
+          {/* Page Title */}
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Blog</h1>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        {/* Blog Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {blogPosts.map((post) => (
+            <article key={post.id} className="group cursor-pointer">
+              {/* Image Container */}
+              <div className="relative mb-5 rounded-2xl overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-67 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                {/* Category Badge */}
+                <div className="absolute top-5 left-5">
+                  <span className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-medium">
+                    {post.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="space-y-3">
+                {/* Author and Date */}
+                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                  <span>{post.author}</span>
+                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                  <span>{post.date}</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-600 transition-colors leading-relaxed">
+                  {post.title}
+                </h3>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center items-center space-x-2 mb-16">
+          <Button 
+            variant="default" 
+            size="sm" 
+            className="w-10 h-10 rounded-full bg-[#050B20] text-white"
+          >
+            1
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="w-10 h-10 rounded-full border-gray-200 text-gray-900 hover:bg-gray-50"
+          >
+            2
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="rounded-full border-gray-200 text-gray-900 hover:bg-gray-50 px-4"
+          >
+            <ChevronRight className="w-3 h-3" />
+          </Button>
+        </div>
+      </main>
+
+      {/* Newsletter Section */}
+      <section className="bg-[#050B20] text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="mb-8 lg:mb-0">
+              <h2 className="text-3xl font-medium mb-2">Join BoxCar</h2>
+              <p className="text-gray-300">Receive pricing updates, shopping tips & more!</p>
+            </div>
+            <div className="w-full lg:w-auto">
+              <div className="flex bg-white/10 rounded-full p-3 max-w-md">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 bg-transparent text-white placeholder-white/70 px-4 focus:outline-none"
+                />
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">
+                  Sign Up
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#050B20] text-white">
+        <div className="w-full h-px bg-white/10"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {/* Company */}
+            <div>
+              <h3 className="text-xl font-medium mb-6">Company</h3>
+              <ul className="space-y-3">
+                {companyLinks.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xl font-medium mb-6">Quick Links</h3>
+              <ul className="space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Our Brands */}
+            <div>
+              <h3 className="text-xl font-medium mb-6">Our Brands</h3>
+              <ul className="space-y-3">
+                {brands.map((brand) => (
+                  <li key={brand}>
+                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                      {brand}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Vehicle Types */}
+            <div>
+              <h3 className="text-xl font-medium mb-6">Vehicles Type</h3>
+              <ul className="space-y-3">
+                {vehicleTypes.map((type) => (
+                  <li key={type}>
+                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                      {type}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Mobile App */}
+            <div>
+              <h3 className="text-xl font-medium mb-6">Our Mobile App</h3>
+              <div className="space-y-3 mb-8">
+                <a href="#" className="flex items-center space-x-3 bg-white/10 rounded-2xl p-4 hover:bg-white/20 transition-colors">
+                  <div className="text-2xl">🍎</div>
+                  <div>
+                    <div className="text-xs text-gray-300">Download on the</div>
+                    <div className="text-sm font-medium">Apple Store</div>
+                  </div>
+                </a>
+                <a href="#" className="flex items-center space-x-3 bg-white/10 rounded-2xl p-4 hover:bg-white/20 transition-colors">
+                  <div className="text-2xl">📱</div>
+                  <div>
+                    <div className="text-xs text-gray-300">Get in on</div>
+                    <div className="text-sm font-medium">Google Play</div>
+                  </div>
+                </a>
+              </div>
+
+              {/* Social Links */}
+              <div>
+                <h4 className="text-xl font-medium mb-4">Connect With Us</h4>
+                <div className="flex space-x-3">
+                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                    <span className="text-sm">f</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                    <span className="text-sm">tw</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                    <span className="text-sm">ig</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                    <span className="text-sm">in</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Footer */}
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <p className="text-gray-300 text-sm">
+                © 2024 Boxcars.com. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-6 mt-4 md:mt-0">
+                <a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">
+                  Terms & Conditions
+                </a>
+                <div className="w-1 h-1 bg-white rounded-full"></div>
+                <a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">
+                  Privacy Notice
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-50"
+      >
+        <ArrowUp className="w-4 h-4" />
+      </button>
+    </div>
+  );
+}
