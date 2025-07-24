@@ -278,24 +278,29 @@ export default function Blog() {
         </div>
       </main>
 
+      {/* Background transition */}
+      <div className="w-full h-[80px] flex justify-center items-center bg-[#050B20] relative">
+        <div className="w-full h-[80px] bg-white rounded-b-[80px]"></div>
+      </div>
+
       {/* Newsletter Section */}
-      <section className="bg-[#050B20] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#050B20] text-white pt-[67px] pb-[50px]">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px]">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="mb-8 lg:mb-0">
-              <h2 className="text-3xl font-medium mb-2">Join BoxCar</h2>
-              <p className="text-gray-300">Receive pricing updates, shopping tips & more!</p>
+              <h2 className="text-[30px] font-medium mb-2 leading-[30px] text-white">Join BoxCar</h2>
+              <p className="text-white text-[15px] font-normal leading-[28px]">Receive pricing updates, shopping tips & more!</p>
             </div>
             <div className="w-full lg:w-auto">
-              <div className="flex bg-white/10 rounded-full p-3 max-w-md">
+              <div className="flex bg-white/13 rounded-[60px] p-[10px] w-[542px] h-[72px] max-w-full">
                 <input
                   type="email"
                   placeholder="Your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-transparent text-white placeholder-white/70 px-4 focus:outline-none"
+                  className="flex-1 bg-transparent text-white placeholder-white/70 px-[20px] focus:outline-none text-[15px] font-normal"
                 />
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">
+                <Button className="bg-[#405FF2] hover:bg-[#405FF2]/90 text-white rounded-[60px] px-[31px] py-[11px] border border-[#405FF2] text-[15px] font-medium h-[52px] leading-[28px]">
                   Sign Up
                 </Button>
               </div>
