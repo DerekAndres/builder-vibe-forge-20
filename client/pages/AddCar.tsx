@@ -32,7 +32,8 @@ export default function AddCar() {
     bodyType: 'Sedan',
     color: '',
     description: '',
-    imageUrl: ''
+    imageUrl: '',
+    showInCatalog: true
   });
 
   const handleInputChange = (field: keyof CreateCarRequest, value: string | number) => {
