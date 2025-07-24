@@ -25,6 +25,7 @@ export function createServer() {
   app.post("/api/cars", createCar);
   app.get("/api/cars/:id", getCar);
   app.delete("/api/cars/:id", deleteCar);
+  app.patch("/api/cars/:id/visibility", toggleCarVisibility);
 
   return app;
 }
