@@ -254,28 +254,27 @@ export default function Blog() {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center items-center space-x-2 mb-16">
-          <Button 
-            variant="default" 
-            size="sm" 
-            className="w-10 h-10 rounded-full bg-[#050B20] text-white"
-          >
-            1
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="w-10 h-10 rounded-full border-gray-200 text-gray-900 hover:bg-gray-50"
-          >
-            2
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="rounded-full border-gray-200 text-gray-900 hover:bg-gray-50 px-4"
-          >
-            <ChevronRight className="w-3 h-3" />
-          </Button>
+        <div className="flex justify-center items-center space-x-2 mb-[99px] w-full">
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="default"
+              className="w-[40px] h-[39px] rounded-[19.75px] bg-[#050B20] text-white border border-[#050B20] text-[15px] font-medium hover:bg-[#050B20]/90"
+            >
+              1
+            </Button>
+            <Button
+              variant="outline"
+              className="w-[40px] h-[39px] rounded-[19.75px] border-0 bg-white text-[#050B20] hover:bg-gray-50 text-[15px] font-medium"
+            >
+              2
+            </Button>
+            <Button
+              variant="outline"
+              className="w-[60px] h-[38px] rounded-[30px] border border-[#E9E9E9] bg-[#F9FBFC] text-[#050B20] hover:bg-gray-100 px-4 flex items-center justify-center"
+            >
+              <ChevronRight className="w-3 h-3" />
+            </Button>
+          </div>
         </div>
       </main>
 
