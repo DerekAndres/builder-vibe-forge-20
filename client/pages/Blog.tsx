@@ -442,9 +442,9 @@ export default function Blog() {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-50"
+        className="fixed bottom-[40px] right-[30px] bg-[#405FF2] hover:bg-[#405FF2]/90 text-white w-[40px] h-[40px] rounded-[20px] flex items-center justify-center shadow-lg transition-colors z-50"
       >
-        <ArrowUp className="w-4 h-4" />
+        <ArrowUp className="w-[13px] h-[13px]" />
       </button>
     </div>
   );
