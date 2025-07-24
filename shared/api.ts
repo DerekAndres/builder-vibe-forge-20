@@ -10,3 +10,54 @@
 export interface DemoResponse {
   message: string;
 }
+
+/**
+ * Car data structure
+ */
+export interface Car {
+  id: string;
+  title: string;
+  brand: string;
+  model: string;
+  year: number;
+  price: number;
+  mileage: number;
+  fuelType: 'Gasoline' | 'Diesel' | 'Electric' | 'Hybrid';
+  transmission: 'Manual' | 'Automatic';
+  bodyType: 'Sedan' | 'SUV' | 'Hatchback' | 'Coupe' | 'Truck' | 'Convertible';
+  color: string;
+  description: string;
+  imageUrl: string;
+  createdAt: string;
+}
+
+/**
+ * Request/Response types for car API
+ */
+export interface CreateCarRequest {
+  title: string;
+  brand: string;
+  model: string;
+  year: number;
+  price: number;
+  mileage: number;
+  fuelType: Car['fuelType'];
+  transmission: Car['transmission'];
+  bodyType: Car['bodyType'];
+  color: string;
+  description: string;
+  imageUrl: string;
+}
+
+export interface GetCarsResponse {
+  cars: Car[];
+}
+
+export interface CreateCarResponse {
+  car: Car;
+  message: string;
+}
+
+export interface DeleteCarResponse {
+  message: string;
+}
