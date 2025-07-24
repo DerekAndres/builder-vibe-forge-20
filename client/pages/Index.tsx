@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Car, BookOpen, Plus, Eye } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 export default function Index() {
   return (
