@@ -36,7 +36,7 @@ export default function AddCar() {
     showInCatalog: true
   });
 
-  const handleInputChange = (field: keyof CreateCarRequest, value: string | number) => {
+  const handleInputChange = (field: keyof CreateCarRequest, value: string | number | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -89,243 +89,261 @@ export default function AddCar() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              onClick={() => window.location.href = '/cars'}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Catalog
-            </Button>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                <CarIcon className="w-8 h-8 text-blue-600" />
-                Add New Car
-              </h1>
-              <p className="mt-2 text-gray-600">
-                Fill in the details to add a new car to your catalog
-              </p>
+    <div>
+      <Navbar />
+      <div className="min-h-screen bg-gray-50">
+        {/* Header */}
+        <div className="bg-white shadow-sm">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                onClick={() => window.location.href = '/cars'}
+                className="flex items-center gap-2"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Catalog
+              </Button>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                  <CarIcon className="w-8 h-8 text-blue-600" />
+                  Add New Car
+                </h1>
+                <p className="mt-2 text-gray-600">
+                  Fill in the details to add a new car to your catalog
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Form */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>Car Information</CardTitle>
-            <CardDescription>
-              Enter the details of the car you want to add to the catalog
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Basic Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="title">Title *</Label>
-                  <Input
-                    id="title"
-                    placeholder="e.g., 2024 BMW X5 M50i Sport"
-                    value={formData.title}
-                    onChange={(e) => handleInputChange('title', e.target.value)}
-                    required
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="brand">Brand *</Label>
-                  <Input
-                    id="brand"
-                    placeholder="e.g., BMW"
-                    value={formData.brand}
-                    onChange={(e) => handleInputChange('brand', e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="model">Model *</Label>
-                  <Input
-                    id="model"
-                    placeholder="e.g., X5"
-                    value={formData.model}
-                    onChange={(e) => handleInputChange('model', e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="year">Year *</Label>
-                  <Select value={formData.year.toString()} onValueChange={(value) => handleInputChange('year', parseInt(value))}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {years.map((year) => (
-                        <SelectItem key={year} value={year.toString()}>
-                          {year}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="price">Price ($) *</Label>
-                  <Input
-                    id="price"
-                    type="number"
-                    min="1"
-                    placeholder="e.g., 45000"
-                    value={formData.price || ''}
-                    onChange={(e) => handleInputChange('price', parseInt(e.target.value) || 0)}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="mileage">Mileage (miles) *</Label>
-                  <Input
-                    id="mileage"
-                    type="number"
-                    min="0"
-                    placeholder="e.g., 15000"
-                    value={formData.mileage || ''}
-                    onChange={(e) => handleInputChange('mileage', parseInt(e.target.value) || 0)}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="fuelType">Fuel Type *</Label>
-                  <Select value={formData.fuelType} onValueChange={(value: Car['fuelType']) => handleInputChange('fuelType', value)}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {fuelTypes.map((type) => (
-                        <SelectItem key={type} value={type}>
-                          {type}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="transmission">Transmission *</Label>
-                  <Select value={formData.transmission} onValueChange={(value: Car['transmission']) => handleInputChange('transmission', value)}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {transmissionTypes.map((type) => (
-                        <SelectItem key={type} value={type}>
-                          {type}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="bodyType">Body Type *</Label>
-                  <Select value={formData.bodyType} onValueChange={(value: Car['bodyType']) => handleInputChange('bodyType', value)}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {bodyTypes.map((type) => (
-                        <SelectItem key={type} value={type}>
-                          {type}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="color">Color *</Label>
-                  <Input
-                    id="color"
-                    placeholder="e.g., Black"
-                    value={formData.color}
-                    onChange={(e) => handleInputChange('color', e.target.value)}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Image URL */}
-              <div className="space-y-2">
-                <Label htmlFor="imageUrl">Image URL *</Label>
-                <Input
-                  id="imageUrl"
-                  type="url"
-                  placeholder="e.g., https://example.com/car-image.jpg"
-                  value={formData.imageUrl}
-                  onChange={(e) => handleInputChange('imageUrl', e.target.value)}
-                  required
-                />
-                {formData.imageUrl && (
-                  <div className="mt-2">
-                    <img
-                      src={formData.imageUrl}
-                      alt="Car preview"
-                      className="w-32 h-20 object-cover rounded border"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                      }}
+        {/* Form */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Car Information</CardTitle>
+              <CardDescription>
+                Enter the details of the car you want to add to the catalog
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Basic Info */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="title">Title *</Label>
+                    <Input
+                      id="title"
+                      placeholder="e.g., 2024 BMW X5 M50i Sport"
+                      value={formData.title}
+                      onChange={(e) => handleInputChange('title', e.target.value)}
+                      required
                     />
                   </div>
-                )}
-              </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="brand">Brand *</Label>
+                    <Input
+                      id="brand"
+                      placeholder="e.g., BMW"
+                      value={formData.brand}
+                      onChange={(e) => handleInputChange('brand', e.target.value)}
+                      required
+                    />
+                  </div>
 
-              {/* Description */}
-              <div className="space-y-2">
-                <Label htmlFor="description">Description *</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Describe the car's features, condition, and any other relevant details..."
-                  value={formData.description}
-                  onChange={(e) => handleInputChange('description', e.target.value)}
-                  rows={4}
-                  required
-                />
-              </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="model">Model *</Label>
+                    <Input
+                      id="model"
+                      placeholder="e.g., X5"
+                      value={formData.model}
+                      onChange={(e) => handleInputChange('model', e.target.value)}
+                      required
+                    />
+                  </div>
 
-              {/* Submit Button */}
-              <div className="flex justify-end gap-4 pt-6">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => window.location.href = '/cars'}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
-                >
-                  {loading ? (
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                  ) : (
-                    <Save className="w-4 h-4" />
+                  <div className="space-y-2">
+                    <Label htmlFor="year">Year *</Label>
+                    <Select value={formData.year.toString()} onValueChange={(value) => handleInputChange('year', parseInt(value))}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {years.map((year) => (
+                          <SelectItem key={year} value={year.toString()}>
+                            {year}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="price">Price ($) *</Label>
+                    <Input
+                      id="price"
+                      type="number"
+                      min="1"
+                      placeholder="e.g., 45000"
+                      value={formData.price || ''}
+                      onChange={(e) => handleInputChange('price', parseInt(e.target.value) || 0)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="mileage">Mileage (miles) *</Label>
+                    <Input
+                      id="mileage"
+                      type="number"
+                      min="0"
+                      placeholder="e.g., 15000"
+                      value={formData.mileage || ''}
+                      onChange={(e) => handleInputChange('mileage', parseInt(e.target.value) || 0)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="fuelType">Fuel Type *</Label>
+                    <Select value={formData.fuelType} onValueChange={(value: Car['fuelType']) => handleInputChange('fuelType', value)}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {fuelTypes.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="transmission">Transmission *</Label>
+                    <Select value={formData.transmission} onValueChange={(value: Car['transmission']) => handleInputChange('transmission', value)}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {transmissionTypes.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="bodyType">Body Type *</Label>
+                    <Select value={formData.bodyType} onValueChange={(value: Car['bodyType']) => handleInputChange('bodyType', value)}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {bodyTypes.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="color">Color *</Label>
+                    <Input
+                      id="color"
+                      placeholder="e.g., Black"
+                      value={formData.color}
+                      onChange={(e) => handleInputChange('color', e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Image URL */}
+                <div className="space-y-2">
+                  <Label htmlFor="imageUrl">Image URL *</Label>
+                  <Input
+                    id="imageUrl"
+                    type="url"
+                    placeholder="e.g., https://example.com/car-image.jpg"
+                    value={formData.imageUrl}
+                    onChange={(e) => handleInputChange('imageUrl', e.target.value)}
+                    required
+                  />
+                  {formData.imageUrl && (
+                    <div className="mt-2">
+                      <img
+                        src={formData.imageUrl}
+                        alt="Car preview"
+                        className="w-32 h-20 object-cover rounded border"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
                   )}
-                  {loading ? 'Adding...' : 'Add Car'}
-                </Button>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
+                </div>
+
+                {/* Description */}
+                <div className="space-y-2">
+                  <Label htmlFor="description">Description *</Label>
+                  <Textarea
+                    id="description"
+                    placeholder="Describe the car's features, condition, and any other relevant details..."
+                    value={formData.description}
+                    onChange={(e) => handleInputChange('description', e.target.value)}
+                    rows={4}
+                    required
+                  />
+                </div>
+
+                {/* Show in Catalog Checkbox */}
+                <div className="flex items-center space-x-2 p-4 bg-blue-50 rounded-lg">
+                  <Checkbox
+                    id="showInCatalog"
+                    checked={formData.showInCatalog}
+                    onCheckedChange={(checked) => handleInputChange('showInCatalog', checked)}
+                  />
+                  <Label htmlFor="showInCatalog" className="text-sm font-medium">
+                    Show this car in the public catalog
+                  </Label>
+                  <p className="text-xs text-gray-600 ml-2">
+                    (You can change this later in the management panel)
+                  </p>
+                </div>
+
+                {/* Submit Button */}
+                <div className="flex justify-end gap-4 pt-6">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => window.location.href = '/cars'}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
+                  >
+                    {loading ? (
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    ) : (
+                      <Save className="w-4 h-4" />
+                    )}
+                    {loading ? 'Adding...' : 'Add Car'}
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
