@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, User, ArrowUp, Menu } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const blogPosts = [
   {
