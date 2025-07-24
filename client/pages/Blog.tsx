@@ -9,7 +9,8 @@ const blogPosts = [
     category: "Sound",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/908264b92e4a0a521f03b702d54f60077bd17f15?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/908264b92e4a0a521f03b702d54f60077bd17f15?width=832",
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const blogPosts = [
     category: "Accessories",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/7462c356e06661303f37b09c47b028feeb90c788?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/7462c356e06661303f37b09c47b028feeb90c788?width=832",
   },
   {
     id: 3,
@@ -25,7 +27,8 @@ const blogPosts = [
     category: "Exterior",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ff3c36f1e4fca013aac04b6841d202fab91887ee?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ff3c36f1e4fca013aac04b6841d202fab91887ee?width=832",
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ const blogPosts = [
     category: "Body Kit",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/52e6b0494b45c4c41e35f5342e3a7b2ef1005394?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/52e6b0494b45c4c41e35f5342e3a7b2ef1005394?width=832",
   },
   {
     id: 5,
@@ -41,7 +45,8 @@ const blogPosts = [
     category: "Fuel Systems",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/cea6385d5c3bf4163ea4c731f7da90e046f53a39?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/cea6385d5c3bf4163ea4c731f7da90e046f53a39?width=832",
   },
   {
     id: 6,
@@ -49,7 +54,8 @@ const blogPosts = [
     category: "Exterior",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/075653d4dd6beda316af6bdb46ec1a6328fe49ee?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/075653d4dd6beda316af6bdb46ec1a6328fe49ee?width=832",
   },
   {
     id: 7,
@@ -57,7 +63,8 @@ const blogPosts = [
     category: "Body Kit",
     author: "admin",
     date: "November 22, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/12887ded18ff4fadae4d52613df15cdf5165a8b6?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/12887ded18ff4fadae4d52613df15cdf5165a8b6?width=832",
   },
   {
     id: 8,
@@ -65,7 +72,8 @@ const blogPosts = [
     category: "Sound",
     author: "admin",
     date: "September 19, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/60d0aa08dcff9179bb61b7b887d860b574c2b4f7?width=832"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/60d0aa08dcff9179bb61b7b887d860b574c2b4f7?width=832",
   },
   {
     id: 9,
@@ -73,24 +81,42 @@ const blogPosts = [
     category: "Oil & Filters",
     author: "admin",
     date: "September 19, 2023",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/177c614420acb691ded6c6893cc12ffe3e852a16?width=832"
-  }
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/177c614420acb691ded6c6893cc12ffe3e852a16?width=832",
+  },
 ];
 
 const companyLinks = [
-  "About Us", "Blog", "Services", "FAQs", "Terms", "Contact Us"
+  "About Us",
+  "Blog",
+  "Services",
+  "FAQs",
+  "Terms",
+  "Contact Us",
 ];
 
-const quickLinks = [
-  "Get in Touch", "Help center", "Live chat", "How it works"
-];
+const quickLinks = ["Get in Touch", "Help center", "Live chat", "How it works"];
 
 const brands = [
-  "Toyota", "Porsche", "Audi", "BMW", "Ford", "Nissan", "Peugeot", "Volkswagen"
+  "Toyota",
+  "Porsche",
+  "Audi",
+  "BMW",
+  "Ford",
+  "Nissan",
+  "Peugeot",
+  "Volkswagen",
 ];
 
 const vehicleTypes = [
-  "Sedan", "Hatchback", "SUV", "Hybrid", "Electric", "Coupe", "Truck", "Convertible"
+  "Sedan",
+  "Hatchback",
+  "SUV",
+  "Hybrid",
+  "Electric",
+  "Coupe",
+  "Truck",
+  "Convertible",
 ];
 
 export default function Blog() {
@@ -98,7 +124,7 @@ export default function Blog() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -109,27 +135,47 @@ export default function Blog() {
           <div className="flex items-center justify-between h-[104px]">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <div className="text-white font-bold text-xl tracking-wide">BOXCARS</div>
+              <div className="text-white font-bold text-xl tracking-wide">
+                BOXCARS
+              </div>
             </div>
 
             {/* Navigation - Desktop */}
             <nav className="hidden lg:flex items-center space-x-8">
-              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+              <a
+                href="#"
+                className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+              >
                 Home
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+              <a
+                href="#"
+                className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+              >
                 Listings
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium underline decoration-white">
+              <a
+                href="#"
+                className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium underline decoration-white"
+              >
                 Blog
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+              <a
+                href="#"
+                className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+              >
                 Pages
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+              <a
+                href="#"
+                className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+              >
                 About
               </a>
-              <a href="#" className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+              <a
+                href="#"
+                className="text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+              >
                 Contact
               </a>
             </nav>
@@ -140,9 +186,7 @@ export default function Blog() {
                 <User className="w-4 h-4" />
                 <span className="text-[15px] font-medium">Sign in</span>
               </div>
-              <Button
-                className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6 py-3 text-[15px] font-medium border border-white"
-              >
+              <Button className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6 py-3 text-[15px] font-medium border border-white">
                 Submit Listing
               </Button>
             </div>
@@ -162,22 +206,40 @@ export default function Blog() {
           {mobileMenuOpen && (
             <div className="lg:hidden absolute top-full left-0 w-full bg-[#050B20] border-t border-white/10">
               <nav className="px-4 py-6 space-y-4">
-                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                <a
+                  href="#"
+                  className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+                >
                   Home
                 </a>
-                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                <a
+                  href="#"
+                  className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+                >
                   Listings
                 </a>
-                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium underline">
+                <a
+                  href="#"
+                  className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium underline"
+                >
                   Blog
                 </a>
-                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                <a
+                  href="#"
+                  className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+                >
                   Pages
                 </a>
-                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                <a
+                  href="#"
+                  className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+                >
                   About
                 </a>
-                <a href="#" className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium">
+                <a
+                  href="#"
+                  className="block text-white hover:text-blue-400 transition-colors text-[15px] font-medium"
+                >
                   Contact
                 </a>
                 <div className="pt-4 border-t border-white/10">
@@ -185,9 +247,7 @@ export default function Blog() {
                     <User className="w-4 h-4" />
                     <span className="text-[15px] font-medium">Sign in</span>
                   </div>
-                  <Button
-                    className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6 py-3 text-[15px] font-medium w-full"
-                  >
+                  <Button className="bg-white text-[#050B20] hover:bg-gray-100 rounded-full px-6 py-3 text-[15px] font-medium w-full">
                     Submit Listing
                   </Button>
                 </div>
@@ -202,13 +262,17 @@ export default function Blog() {
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px]">
           {/* Breadcrumb */}
           <nav className="flex items-center space-x-1 text-[15px] mb-[35px]">
-            <a href="#" className="text-[#405FF2] hover:underline font-normal">Home</a>
+            <a href="#" className="text-[#405FF2] hover:underline font-normal">
+              Home
+            </a>
             <span className="text-[#050B20] px-1">/</span>
             <span className="text-[#050B20] font-normal">Blog</span>
           </nav>
 
           {/* Page Title */}
-          <h1 className="text-[40px] font-bold text-[#050B20] leading-[48px] capitalize">Blog</h1>
+          <h1 className="text-[40px] font-bold text-[#050B20] leading-[48px] capitalize">
+            Blog
+          </h1>
         </div>
       </section>
 
@@ -218,7 +282,10 @@ export default function Blog() {
         <div className="w-full max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[46px] gap-y-[30px] mb-[79px]">
             {blogPosts.map((post) => (
-              <article key={post.id} className="group cursor-pointer w-full max-w-[416px]">
+              <article
+                key={post.id}
+                className="group cursor-pointer w-full max-w-[416px]"
+              >
                 {/* Image Container */}
                 <div className="relative mb-5 rounded-2xl overflow-hidden">
                   <img
@@ -238,9 +305,13 @@ export default function Blog() {
                 <div className="space-y-[4px]">
                   {/* Author and Date */}
                   <div className="flex items-center space-x-[10px] text-[15px] text-[#050B20] mb-[4px]">
-                    <span className="font-normal leading-[28px] capitalize">{post.author}</span>
+                    <span className="font-normal leading-[28px] capitalize">
+                      {post.author}
+                    </span>
                     <div className="w-[4px] h-[4px] bg-[#E1E1E1] rounded-full"></div>
-                    <span className="font-normal leading-[28px] capitalize">{post.date}</span>
+                    <span className="font-normal leading-[28px] capitalize">
+                      {post.date}
+                    </span>
                   </div>
 
                   {/* Title */}
@@ -288,8 +359,12 @@ export default function Blog() {
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px]">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="mb-8 lg:mb-0">
-              <h2 className="text-[30px] font-medium mb-2 leading-[30px] text-white">Join BoxCar</h2>
-              <p className="text-white text-[15px] font-normal leading-[28px]">Receive pricing updates, shopping tips & more!</p>
+              <h2 className="text-[30px] font-medium mb-2 leading-[30px] text-white">
+                Join BoxCar
+              </h2>
+              <p className="text-white text-[15px] font-normal leading-[28px]">
+                Receive pricing updates, shopping tips & more!
+              </p>
             </div>
             <div className="w-full lg:w-auto">
               <div className="flex bg-white/13 rounded-[60px] p-[10px] w-[542px] h-[72px] max-w-full">
@@ -322,11 +397,16 @@ export default function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-[72px]">
             {/* Company */}
             <div className="lg:w-[256px]">
-              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Company</h3>
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">
+                Company
+              </h3>
               <ul className="space-y-[11px]">
                 {companyLinks.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
+                    <a
+                      href="#"
+                      className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]"
+                    >
                       {link}
                     </a>
                   </li>
@@ -336,11 +416,16 @@ export default function Blog() {
 
             {/* Quick Links */}
             <div className="lg:w-[256px]">
-              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Quick Links</h3>
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">
+                Quick Links
+              </h3>
               <ul className="space-y-[11px]">
                 {quickLinks.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
+                    <a
+                      href="#"
+                      className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]"
+                    >
                       {link}
                     </a>
                   </li>
@@ -350,11 +435,16 @@ export default function Blog() {
 
             {/* Our Brands */}
             <div className="lg:w-[285px]">
-              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Our Brands</h3>
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">
+                Our Brands
+              </h3>
               <ul className="space-y-[11px]">
                 {brands.map((brand) => (
                   <li key={brand}>
-                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
+                    <a
+                      href="#"
+                      className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]"
+                    >
                       {brand}
                     </a>
                   </li>
@@ -364,11 +454,16 @@ export default function Blog() {
 
             {/* Vehicle Types */}
             <div className="lg:w-[285px]">
-              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Vehicles Type</h3>
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">
+                Vehicles Type
+              </h3>
               <ul className="space-y-[11px]">
                 {vehicleTypes.map((type) => (
                   <li key={type}>
-                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
+                    <a
+                      href="#"
+                      className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]"
+                    >
                       {type}
                     </a>
                   </li>
@@ -378,39 +473,81 @@ export default function Blog() {
 
             {/* Mobile App */}
             <div className="lg:w-[199px]">
-              <h3 className="text-[20px] font-medium mb-[52px] leading-[20px] text-white">Our Mobile App</h3>
+              <h3 className="text-[20px] font-medium mb-[52px] leading-[20px] text-white">
+                Our Mobile App
+              </h3>
               <div className="space-y-3 mb-[72px]">
-                <a href="#" className="flex items-center space-x-3 bg-white/7 rounded-2xl p-4 hover:bg-white/10 transition-colors w-[199px] h-[60px]">
-                  <div className="text-[25px] leading-[25px] w-[19px] h-[25px] flex items-center justify-center">🍎</div>
+                <a
+                  href="#"
+                  className="flex items-center space-x-3 bg-white/7 rounded-2xl p-4 hover:bg-white/10 transition-colors w-[199px] h-[60px]"
+                >
+                  <div className="text-[25px] leading-[25px] w-[19px] h-[25px] flex items-center justify-center">
+                    🍎
+                  </div>
                   <div>
-                    <div className="text-[12px] text-white font-normal leading-[12px]">Download on the</div>
-                    <div className="text-[15px] font-medium text-white leading-[15px]">Apple Store</div>
+                    <div className="text-[12px] text-white font-normal leading-[12px]">
+                      Download on the
+                    </div>
+                    <div className="text-[15px] font-medium text-white leading-[15px]">
+                      Apple Store
+                    </div>
                   </div>
                 </a>
-                <a href="#" className="flex items-center space-x-3 bg-white/7 rounded-2xl p-4 hover:bg-white/10 transition-colors w-[199px] h-[60px]">
-                  <div className="text-[25px] leading-[25px] w-[25px] h-[25px] flex items-center justify-center">📱</div>
+                <a
+                  href="#"
+                  className="flex items-center space-x-3 bg-white/7 rounded-2xl p-4 hover:bg-white/10 transition-colors w-[199px] h-[60px]"
+                >
+                  <div className="text-[25px] leading-[25px] w-[25px] h-[25px] flex items-center justify-center">
+                    📱
+                  </div>
                   <div>
-                    <div className="text-[12px] text-white font-normal leading-[12px]">Get in on</div>
-                    <div className="text-[15px] font-medium text-white leading-[15px]">Google Play</div>
+                    <div className="text-[12px] text-white font-normal leading-[12px]">
+                      Get in on
+                    </div>
+                    <div className="text-[15px] font-medium text-white leading-[15px]">
+                      Google Play
+                    </div>
                   </div>
                 </a>
               </div>
 
               {/* Social Links */}
               <div>
-                <h4 className="text-[20px] font-medium mb-[47px] leading-[20px] text-white">Connect With Us</h4>
+                <h4 className="text-[20px] font-medium mb-[47px] leading-[20px] text-white">
+                  Connect With Us
+                </h4>
                 <div className="flex space-x-[9px]">
-                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
-                    <span className="text-[15px] text-white leading-[15px]">f</span>
+                  <a
+                    href="#"
+                    className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-[15px] text-white leading-[15px]">
+                      f
+                    </span>
                   </a>
-                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
-                    <span className="text-[15px] text-white leading-[15px]">tw</span>
+                  <a
+                    href="#"
+                    className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-[15px] text-white leading-[15px]">
+                      tw
+                    </span>
                   </a>
-                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
-                    <span className="text-[15px] text-white leading-[15px]">ig</span>
+                  <a
+                    href="#"
+                    className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-[15px] text-white leading-[15px]">
+                      ig
+                    </span>
                   </a>
-                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
-                    <span className="text-[15px] text-white leading-[15px]">in</span>
+                  <a
+                    href="#"
+                    className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-[15px] text-white leading-[15px]">
+                      in
+                    </span>
                   </a>
                 </div>
               </div>
@@ -426,11 +563,17 @@ export default function Blog() {
                 © 2024 Boxcars.com. All rights reserved.
               </p>
               <div className="flex items-center space-x-[4px] mt-4 md:mt-0">
-                <a href="#" className="text-white hover:text-white/80 text-[15px] font-normal leading-[28px] transition-colors">
+                <a
+                  href="#"
+                  className="text-white hover:text-white/80 text-[15px] font-normal leading-[28px] transition-colors"
+                >
                   Terms & Conditions
                 </a>
                 <div className="w-[4px] h-[4px] bg-white rounded-full mx-[11px]"></div>
-                <a href="#" className="text-white hover:text-white/80 text-[15px] font-normal leading-[28px] transition-colors">
+                <a
+                  href="#"
+                  className="text-white hover:text-white/80 text-[15px] font-normal leading-[28px] transition-colors"
+                >
                   Privacy Notice
                 </a>
               </div>
