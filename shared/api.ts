@@ -28,6 +28,7 @@ export interface Car {
   color: string;
   description: string;
   imageUrl: string;
+  showInCatalog: boolean;
   createdAt: string;
 }
 
