@@ -13,6 +13,8 @@ export default function Cars() {
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState<string | null>(null);
+  const [toggling, setToggling] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<string>("catalog");
 
   // Fetch cars from API
   const fetchCars = async () => {
