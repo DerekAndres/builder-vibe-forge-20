@@ -63,3 +63,12 @@ export interface CreateCarResponse {
 export interface DeleteCarResponse {
   message: string;
 }
+
+export interface ToggleCarVisibilityRequest {
+  showInCatalog: boolean;
+}
+
+export interface ToggleCarVisibilityResponse {
+  car: Car;
+  message: string;
+}
