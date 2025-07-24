@@ -213,42 +213,44 @@ export default function Blog() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <main className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px] pb-16">
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {blogPosts.map((post) => (
-            <article key={post.id} className="group cursor-pointer">
-              {/* Image Container */}
-              <div className="relative mb-5 rounded-2xl overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-67 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                {/* Category Badge */}
-                <div className="absolute top-5 left-5">
-                  <span className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-medium">
-                    {post.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="space-y-3">
-                {/* Author and Date */}
-                <div className="flex items-center space-x-3 text-sm text-gray-600">
-                  <span>{post.author}</span>
-                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                  <span>{post.date}</span>
+        <div className="w-full max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[46px] gap-y-[30px] mb-[79px]">
+            {blogPosts.map((post) => (
+              <article key={post.id} className="group cursor-pointer w-full max-w-[416px]">
+                {/* Image Container */}
+                <div className="relative mb-5 rounded-2xl overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-[267px] object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Category Badge */}
+                  <div className="absolute top-5 left-5">
+                    <span className="bg-white text-[#050B20] px-[15px] py-[4px] rounded-[30px] text-[14px] font-medium leading-[26px]">
+                      {post.category}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-600 transition-colors leading-relaxed">
-                  {post.title}
-                </h3>
-              </div>
-            </article>
-          ))}
+                {/* Content */}
+                <div className="space-y-[4px]">
+                  {/* Author and Date */}
+                  <div className="flex items-center space-x-[10px] text-[15px] text-[#050B20] mb-[4px]">
+                    <span className="font-normal leading-[28px] capitalize">{post.author}</span>
+                    <div className="w-[4px] h-[4px] bg-[#E1E1E1] rounded-full"></div>
+                    <span className="font-normal leading-[28px] capitalize">{post.date}</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-[20px] font-medium text-[#050B20] group-hover:text-blue-600 transition-colors leading-[30px] pt-[8px]">
+                    {post.title}
+                  </h3>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {/* Pagination */}
