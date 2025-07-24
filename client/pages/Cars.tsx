@@ -50,7 +50,7 @@ export default function Cars() {
       }
 
       const data: DeleteCarResponse = await response.json();
-      
+
       // Remove car from local state
       setCars(prevCars => prevCars.filter(car => car.id !== carId));
       toast.success(data.message);
@@ -59,6 +59,41 @@ export default function Cars() {
       toast.error("Failed to delete car");
     } finally {
       setDeleting(null);
+    }
+  };
+
+  // Toggle car visibility in catalog
+  const toggleCarVisibility = async (carId: string, currentVisibility: boolean) => {
+    setToggling(carId);
+    try {
+      const response = await fetch(`/api/cars/${carId}/visibility`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ showInCatalog: !currentVisibility }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to toggle car visibility");
+      }
+
+      const data: ToggleCarVisibilityResponse = await response.json();
+
+      // Update car in local state
+      setCars(prevCars =>
+        prevCars.map(car =>
+          car.id === carId
+            ? { ...car, showInCatalog: !currentVisibility }
+            : car
+        )
+      );
+      toast.success(data.message);
+    } catch (error) {
+      console.error("Error toggling car visibility:", error);
+      toast.error("Failed to toggle car visibility");
+    } finally {
+      setToggling(null);
     }
   };
 
