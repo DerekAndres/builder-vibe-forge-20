@@ -48,6 +48,7 @@ export interface CreateCarRequest {
   color: string;
   description: string;
   imageUrl: string;
+  showInCatalog: boolean;
 }
 
 export interface GetCarsResponse {
