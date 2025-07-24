@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { Car, CreateCarRequest, GetCarsResponse, CreateCarResponse, DeleteCarResponse } from "@shared/api";
+import { Car, CreateCarRequest, GetCarsResponse, CreateCarResponse, DeleteCarResponse, ToggleCarVisibilityRequest, ToggleCarVisibilityResponse } from "@shared/api";
 
 // In-memory storage for demo purposes
 // In a real app, this would be a database
