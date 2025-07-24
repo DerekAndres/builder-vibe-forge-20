@@ -309,19 +309,24 @@ export default function Blog() {
         </div>
       </section>
 
+      {/* Horizontal Divider */}
+      <div className="w-full h-px bg-[#050B20] flex justify-center items-center">
+        <div className="w-full max-w-[1920px] px-[260px]">
+          <div className="w-full h-px bg-white/11"></div>
+        </div>
+      </div>
+
       {/* Footer */}
-      <footer className="bg-[#050B20] text-white">
-        <div className="w-full h-px bg-white/10"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <footer className="bg-[#050B20] text-white pt-[55px] pb-[91px]">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-[72px]">
             {/* Company */}
-            <div>
-              <h3 className="text-xl font-medium mb-6">Company</h3>
-              <ul className="space-y-3">
+            <div className="lg:w-[256px]">
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Company</h3>
+              <ul className="space-y-[11px]">
                 {companyLinks.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
                       {link}
                     </a>
                   </li>
@@ -330,12 +335,12 @@ export default function Blog() {
             </div>
 
             {/* Quick Links */}
-            <div>
-              <h3 className="text-xl font-medium mb-6">Quick Links</h3>
-              <ul className="space-y-3">
+            <div className="lg:w-[256px]">
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Quick Links</h3>
+              <ul className="space-y-[11px]">
                 {quickLinks.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
                       {link}
                     </a>
                   </li>
@@ -344,12 +349,12 @@ export default function Blog() {
             </div>
 
             {/* Our Brands */}
-            <div>
-              <h3 className="text-xl font-medium mb-6">Our Brands</h3>
-              <ul className="space-y-3">
+            <div className="lg:w-[285px]">
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Our Brands</h3>
+              <ul className="space-y-[11px]">
                 {brands.map((brand) => (
                   <li key={brand}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
                       {brand}
                     </a>
                   </li>
@@ -358,12 +363,12 @@ export default function Blog() {
             </div>
 
             {/* Vehicle Types */}
-            <div>
-              <h3 className="text-xl font-medium mb-6">Vehicles Type</h3>
-              <ul className="space-y-3">
+            <div className="lg:w-[285px]">
+              <h3 className="text-[20px] font-medium mb-[43px] leading-[24px] capitalize text-white">Vehicles Type</h3>
+              <ul className="space-y-[11px]">
                 {vehicleTypes.map((type) => (
                   <li key={type}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a href="#" className="text-white hover:text-white/80 transition-colors text-[15px] font-normal leading-[28px]">
                       {type}
                     </a>
                   </li>
@@ -372,40 +377,40 @@ export default function Blog() {
             </div>
 
             {/* Mobile App */}
-            <div>
-              <h3 className="text-xl font-medium mb-6">Our Mobile App</h3>
-              <div className="space-y-3 mb-8">
-                <a href="#" className="flex items-center space-x-3 bg-white/10 rounded-2xl p-4 hover:bg-white/20 transition-colors">
-                  <div className="text-2xl">🍎</div>
+            <div className="lg:w-[199px]">
+              <h3 className="text-[20px] font-medium mb-[52px] leading-[20px] text-white">Our Mobile App</h3>
+              <div className="space-y-3 mb-[72px]">
+                <a href="#" className="flex items-center space-x-3 bg-white/7 rounded-2xl p-4 hover:bg-white/10 transition-colors w-[199px] h-[60px]">
+                  <div className="text-[25px] leading-[25px] w-[19px] h-[25px] flex items-center justify-center">🍎</div>
                   <div>
-                    <div className="text-xs text-gray-300">Download on the</div>
-                    <div className="text-sm font-medium">Apple Store</div>
+                    <div className="text-[12px] text-white font-normal leading-[12px]">Download on the</div>
+                    <div className="text-[15px] font-medium text-white leading-[15px]">Apple Store</div>
                   </div>
                 </a>
-                <a href="#" className="flex items-center space-x-3 bg-white/10 rounded-2xl p-4 hover:bg-white/20 transition-colors">
-                  <div className="text-2xl">📱</div>
+                <a href="#" className="flex items-center space-x-3 bg-white/7 rounded-2xl p-4 hover:bg-white/10 transition-colors w-[199px] h-[60px]">
+                  <div className="text-[25px] leading-[25px] w-[25px] h-[25px] flex items-center justify-center">📱</div>
                   <div>
-                    <div className="text-xs text-gray-300">Get in on</div>
-                    <div className="text-sm font-medium">Google Play</div>
+                    <div className="text-[12px] text-white font-normal leading-[12px]">Get in on</div>
+                    <div className="text-[15px] font-medium text-white leading-[15px]">Google Play</div>
                   </div>
                 </a>
               </div>
 
               {/* Social Links */}
               <div>
-                <h4 className="text-xl font-medium mb-4">Connect With Us</h4>
-                <div className="flex space-x-3">
-                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-                    <span className="text-sm">f</span>
+                <h4 className="text-[20px] font-medium mb-[47px] leading-[20px] text-white">Connect With Us</h4>
+                <div className="flex space-x-[9px]">
+                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <span className="text-[15px] text-white leading-[15px]">f</span>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-                    <span className="text-sm">tw</span>
+                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <span className="text-[15px] text-white leading-[15px]">tw</span>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-                    <span className="text-sm">ig</span>
+                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <span className="text-[15px] text-white leading-[15px]">ig</span>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-                    <span className="text-sm">in</span>
+                  <a href="#" className="w-[40px] h-[40px] bg-transparent rounded-[20px] flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <span className="text-[15px] text-white leading-[15px]">in</span>
                   </a>
                 </div>
               </div>
@@ -414,18 +419,18 @@ export default function Blog() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="border-t border-white/12 mt-[20px]">
+          <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-[260px] py-[36px]">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <p className="text-gray-300 text-sm">
+              <p className="text-white text-[15px] font-normal leading-[28px]">
                 © 2024 Boxcars.com. All rights reserved.
               </p>
-              <div className="flex items-center space-x-6 mt-4 md:mt-0">
-                <a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">
+              <div className="flex items-center space-x-[4px] mt-4 md:mt-0">
+                <a href="#" className="text-white hover:text-white/80 text-[15px] font-normal leading-[28px] transition-colors">
                   Terms & Conditions
                 </a>
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">
+                <div className="w-[4px] h-[4px] bg-white rounded-full mx-[11px]"></div>
+                <a href="#" className="text-white hover:text-white/80 text-[15px] font-normal leading-[28px] transition-colors">
                   Privacy Notice
                 </a>
               </div>
