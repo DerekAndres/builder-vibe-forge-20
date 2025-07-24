@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus, Trash2, Car as CarIcon, Calendar, Gauge, Fuel, Settings, Palette } from "lucide-react";
-import { Car, GetCarsResponse, DeleteCarResponse } from "@shared/api";
+import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Plus, Trash2, Car as CarIcon, Calendar, Gauge, Fuel, Settings, Palette, Eye, EyeOff } from "lucide-react";
+import { Car, GetCarsResponse, DeleteCarResponse, ToggleCarVisibilityResponse } from "@shared/api";
 import { toast } from "sonner";
+import Navbar from "@/components/Navbar";
 
 export default function Cars() {
   const [cars, setCars] = useState<Car[]>([]);
